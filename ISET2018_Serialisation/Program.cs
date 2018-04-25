@@ -37,16 +37,15 @@ namespace ISET2018_Serialisation
             #endregion
 
             #region Générique
-            UtilitairesSerialisation.SerialiserToutFichier<Personne>("essai4.xml", p);
-            Personne pQuat = UtilitairesSerialisation.DeSerialiserToutFichier<Personne>("essai4.xml");
+            UtilitairesSerialisation.SerialiserFichier<Personne>("essai4.xml", p);
+            Personne pQuat = UtilitairesSerialisation.DeSerialiserFichier<Personne>("essai4.xml");
             Console.WriteLine(" {0} {1} ({2})", pQuat.Prenom, pQuat.Nom, pQuat.ID);
             List<Personne> lPers = new List<Personne>();
             lPers.Add(p);
             lPers.Add(pBis);
             lPers.Add(pTer);
             lPers.Add(pQuat);
-            UtilitairesSerialisation.SerialiserToutFichier<List<Personne>>("essai5.xml", lPers);
-            
+            UtilitairesSerialisation.SerialiserFichier<List<Personne>>("essai5.xml", lPers);
             #endregion
 
             Console.ReadLine();
@@ -180,14 +179,14 @@ namespace ISET2018_Serialisation
     }
     public class UtilitairesSerialisation
     {
-        public static void SerialiserToutFichier<T>(string nf, T obj)
+        public static void SerialiserFichier<T>(string nf, T obj)
         {
             XmlSerializer xs = new XmlSerializer(typeof(T)); // OU XmlSerializer xs = new XmlSerializer(obj.GetType());
             StreamWriter sw = new StreamWriter(nf);
             xs.Serialize(sw, obj);
             sw.Close();
         }
-        public static T DeSerialiserToutFichier<T>(string nf)
+        public static T DeSerialiserFichier<T>(string nf)
         {
             XmlSerializer xs = new XmlSerializer(typeof(T));
             StreamReader sr = new StreamReader(nf);
