@@ -36,6 +36,19 @@ namespace ISET2018_Serialisation
             Console.WriteLine(" {0} {1} ({2})", pTer.Prenom, pTer.Nom, pTer.ID);
             #endregion
 
+            #region Générique
+            UtilitairesSerialisation.SerialiserToutFichier<Personne>("essai4.xml", p);
+            Personne pQuat = UtilitairesSerialisation.DeSerialiserToutFichier<Personne>("essai4.xml");
+            Console.WriteLine(" {0} {1} ({2})", pQuat.Prenom, pQuat.Nom, pQuat.ID);
+            List<Personne> lPers = new List<Personne>();
+            lPers.Add(p);
+            lPers.Add(pBis);
+            lPers.Add(pTer);
+            lPers.Add(pQuat);
+            UtilitairesSerialisation.SerialiserToutFichier<List<Personne>>("essai5.xml", lPers);
+            
+            #endregion
+
             Console.ReadLine();
         }
     }
@@ -161,6 +174,24 @@ namespace ISET2018_Serialisation
             XmlSerializer xs = new XmlSerializer(typeof(Personne));
             StreamReader sr = new StreamReader(nf);
             Personne rep = (Personne)xs.Deserialize(sr);
+            sr.Close();
+            return rep;
+        }
+    }
+    public class UtilitairesSerialisation
+    {
+        public static void SerialiserToutFichier<T>(string nf, T obj)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(T)); // OU XmlSerializer xs = new XmlSerializer(obj.GetType());
+            StreamWriter sw = new StreamWriter(nf);
+            xs.Serialize(sw, obj);
+            sw.Close();
+        }
+        public static T DeSerialiserToutFichier<T>(string nf)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(T));
+            StreamReader sr = new StreamReader(nf);
+            T rep = (T)xs.Deserialize(sr);
             sr.Close();
             return rep;
         }
