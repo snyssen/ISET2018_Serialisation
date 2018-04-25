@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISET2018_Serialisation", "ISET2018_Serialisation\ISET2018_Serialisation.csproj", "{37C93B5F-6C89-47E4-9B0D-2EAC33D36576}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{37C93B5F-6C89-47E4-9B0D-2EAC33D36576}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37C93B5F-6C89-47E4-9B0D-2EAC33D36576}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37C93B5F-6C89-47E4-9B0D-2EAC33D36576}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37C93B5F-6C89-47E4-9B0D-2EAC33D36576}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26458472-9091-4081-AE13-9D3F2BA7633D}
+	EndGlobalSection
+EndGlobal
